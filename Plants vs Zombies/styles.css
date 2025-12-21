@@ -1,0 +1,548 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: 16/9;
+}
+
+@font-face {
+    font-family: "briannetod";
+    src: url("fonts/BRIANNETOD.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "house of terror";
+    src: url("fonts/HouseofTerror.ttf") format("truetype");
+}
+
+.advice {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    width: 100%;
+    min-height: 100px;
+    background-color: #00000080;
+    padding: 17.5px 0px;
+    transform: translate(-50%);
+
+    #text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        font-family: "house of terror";
+        text-shadow: 2.5px 2.5px 0px #000;
+        font-size: 45px;
+        -webkit-text-stroke: 2px #000;
+        color: #fcf4ac;
+
+    }
+}
+
+#bck {
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    scale: 1;
+    z-index: -1;
+    width: calc(100% + 750px);
+    height: 100%;
+    translate: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("images/background1unsodded.png");
+    transition: translate .75s;
+}
+
+#soddedline {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    translate: 0 12.5px;
+    transform: translateY(-50%);
+    left: -9px;
+    height: 160px;
+    background-position: center;
+    background-size: contain;
+    background-image: url("images/sod1row.png");
+}
+
+#lawn {
+    position: absolute;
+    left: 590px;
+    top: 150px;
+    width: 890px;
+    height: 610px;
+}
+
+#grid {
+    display: flex;
+    width: calc(100% + 20px);
+    height: 100%;
+    flex-wrap: wrap;
+
+    .cell {
+        position: relative;
+        padding: 0;
+        width: 100px;
+        height: 120px;
+    }
+}
+
+.plant {
+    position: absolute;
+    margin: 0;
+    translate: -12.5px 10px;
+    display: block;
+    width: 100px;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("images/peashooter shoot 1.svg");
+}
+
+#suns-container {
+    position: absolute;
+    z-index: 1111;
+    width: 100%;
+    height: 100%;
+
+    .sun {
+        display: block;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-image: url("images/Sun1.svg");
+        background-position: center;
+        background-size: contain;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes selectorFloat {
+    0% {
+        transform: translateY(0);
+        box-sizing: 0px 0px 5px transparent;
+    }
+
+    50% {
+        transform: translateY(5px);
+        box-sizing: 0px 10px 5px #000;
+    }
+
+    100% {
+        transform: translateY(0);
+        box-sizing: 0px 0px 5px transparent;
+    }
+}
+
+
+#zombies {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    .zombie {
+        display: block;
+        position: absolute;
+        width: 106px;
+        left: 100%;
+        top: 106px;
+        height: 145.5px;
+        background-size: contain;
+        background-image: url("images/Zombie 1.svg");
+    }
+}
+
+#overlay {
+    position: absolute;
+    bottom: -101px;
+    right: -347.5px;
+    width: 470px;
+    z-index: 99;
+    height: 120px;
+    background-size: contain;
+    background-image: url("images/background1_cover.png");
+}
+
+#projectiles {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.pea {
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 90px;
+    background-image: url("images/pea.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#bushes {
+    display: block;
+    position: absolute;
+    right: -45px;
+    top: -32.5px;
+    width: 500px;
+    height: 100%;
+    z-index: 98;
+
+    #1 {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("images/B1_1.png");
+    }
+}
+
+.btn-a {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background-size: 120.5px;
+    background-image: url("images/help_buttons2.png");
+}
+
+@keyframes buttonSelect {
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.025;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+#place-selector-arrow {
+    display: none;
+    position: absolute;
+    width: 35px;
+    height: 15px;
+    z-index: 2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("images/board selector arrow.svg");
+    animation: float 1.2s infinite;
+    transition: left .2s, top .2s;
+
+    &.dragging {
+        transition: none;
+    }
+}
+
+@keyframes bush-move {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+#seed-bank {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 585px;
+    width: 610px;
+    height: 110px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("images/SeedBank.png");
+    transition: translate .3s;
+
+    @starting-style {
+        translate: 0 -100%;
+    }
+
+    #arrow {
+        position: absolute;
+        left: 0;
+        top: 0;
+        translate: 22.5px -17.5px;
+        animation: float 1.5s infinite;
+        width: 30px;
+        height: 20px;
+        z-index: 20;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("images/board selector arrow.svg");
+    }
+
+    #suns {
+        position: absolute;
+        left: 15px;
+        top: 77px;
+        width: 67.5px;
+        height: 27px;
+        text-align: center;
+        font-size: 23px;
+        font-family: "briannetod", sans-serif;
+    }
+
+    #seeds {
+        position: absolute;
+        left: 99px;
+        top: 7.5px;
+        width: 450px;
+        height: 90px;
+        display: flex;
+
+        #cont {
+            display: flex;
+            width: 100%;
+            height: 100%
+        }
+
+        .seed {
+            width: 67.5px;
+            height: 91px;
+            background-position: center;
+            padding: 2.5px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("images/SeedPacket_Larger.png");
+
+            &.disabled {
+                filter: brightness(0.70);
+            }
+
+            .recharge {
+                display: none;
+                position: absolute;
+                width: 100%;
+                background: #ffffff20;
+                height: 100%;
+                transform: scale(1, 1);
+                transform-origin: bottom;
+                transition: transform 2.5s linear;
+
+                @starting-style {
+                    transform: scale(1, 0);
+                }
+            }
+
+            &.recharging {
+                filter: brightness(0.75);
+
+                .recharge {
+                    display: block;
+                }
+            }
+
+            &.current {
+                border-radius: 2.5px;
+                background-size: 67px;
+                scale: 1.15;
+                transition: scale .3s;
+                background-color: gold;
+                outline: 3px solid #000;
+            }
+        }
+    }
+}
+
+#mainmenu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    #sky {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("reanim/mainmenu3/sky3.png");
+        background-size: 170% 170%;
+        background-position: -500px 0px;
+        background-repeat: no-repeat;
+    }
+
+    #extras-hill {
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        left: calc(100% - 850px);
+        width: 1800px;
+        height: 400px;
+        background-size: contain;
+        background-image: url("reanim/mainmenu3/Hill.png");
+    }
+
+    #househill {
+        display: block;
+        position: absolute;
+        bottom: 170px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1535px;
+        height: 160px;
+        background-size: contain;
+        background-image: url("reanim/mainmenu3/house_hill.png");
+
+        #house {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            left: 50%;
+            bottom: -190px;
+            transform: translateX(-50%);
+            background-image: url("reanim/mainmenu3/House.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+
+    #hill1 {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 1350px;
+        height: 290px;
+        background-image: url("reanim/mainmenu3/Main hill.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        #thomb {
+            position: absolute;
+            width: 570px;
+            height: 570px;
+            left: 22.5px;
+            bottom: -100px;
+            background-image: url("reanim/mainmenu3/Thomb.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            #adventure {
+                top: 26px;
+                left: 227px;
+                position: absolute;
+                width: 296px;
+                height: 146px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-image: url("reanim/mainmenu3/start adventure.png");
+
+                &.selected {
+                    background-image: url("reanim/mainmenu3/start adventure selected.png");
+                    animation: buttonSelect .125s;
+                }
+            }
+
+            #more-ways {
+                top: 143px;
+                left: 247px;
+                position: absolute;
+                width: 281px;
+                height: 131px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-image: url("reanim/mainmenu3/more ways.png");
+
+                &.selected {
+                    background-image: url("reanim/mainmenu3/more ways selected.png");
+                    animation: buttonSelect .125s;
+                }
+            }
+        }
+
+        #extras {
+            position: absolute;
+            width: 440px;
+            height: 340px;
+            right: 130px;
+            bottom: 100px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: url("reanim/mainmenu3/more-btn.svg");
+
+            #btn {
+                position: absolute;
+                right: 140px;
+                top: 68px;
+                width: 153px;
+                height: 103px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                background-image: url('reanim/mainmenu3/more.png');
+
+                &.selected {
+                    background-image: url('reanim/mainmenu3/more selected.png');
+                    animation: buttonSelect .125s;
+                }
+            }
+        }
+    }
+}
+
+#gameplay {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+#place-selector {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    scale: 1 0.9;
+    transform-origin: bottom;
+    translate: 0 5px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 94px;
+    height: 125px;
+    background-image: url("images/board_selector.png");
+    animation: selectorFloat 1.2s infinite;
+}
