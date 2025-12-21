@@ -1,0 +1,14 @@
+{
+    "name": "pablito",
+    "launch": "game.html",
+    "icon": "OIP.webp",
+    "banner": "banner-wide.png",
+    "achievements": [
+        {
+            "name": "Full of green",
+            "description": "Complete Adventure mode without loosing a single plant",
+            "difficulty": "insane",
+            "points": 50
+        }
+    ]
+}
