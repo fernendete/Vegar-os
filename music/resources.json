@@ -1,0 +1,6 @@
+{
+    "name": "Music",
+    "launch": "app.html",
+    "icon": "icon.webp",
+    "banner": "banner.jpg"
+}
