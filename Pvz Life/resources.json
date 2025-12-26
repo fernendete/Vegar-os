@@ -1,0 +1,8 @@
+{
+    "name": "Pvz Life",
+    "version": "1.0.0",
+    "author": "Ernesto",
+    "launch": "index.html",
+    "icon": "Icon.png",
+    "banner": "Banner.svg"
+}
