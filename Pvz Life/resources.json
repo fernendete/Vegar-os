@@ -4,5 +4,16 @@
     "author": "Ernesto",
     "launch": "index.html",
     "icon": "Icon.png",
-    "banner": "Banner.svg"
+    "banner": "Banner.svg",
+    "screenshots": [
+        {
+            "url": "s1.png"
+        },
+        {
+            "url": "s2.png"
+        },
+        {
+            "url": "s3.png"
+        }
+    ]
 }

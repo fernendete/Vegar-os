@@ -4,5 +4,12 @@
     "author": "Vefeg",
     "launch":"game.html",
     "icon": "OIP.webp",
-    "banner": "banner-wide.png"
+    "banner": "banner-wide.png",
+    "achievements": [
+        {
+            "name": "Soil your plants",
+            "desc": "Plant your first 3 peashooters",
+            "image": "banner-wide.png"
+        }
+    ]
 }
